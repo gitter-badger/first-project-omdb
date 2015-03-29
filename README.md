@@ -31,11 +31,15 @@ Initial setup
 git clone https://github.com/learnjskiev/first-project-omdb.git
 cd first-project-omdb
 
-# Встановлення усіх залежностей
+# Встановлення залежностей інфрастуктури розроби
 npm install
 
-# Щоб використовувати команду `gulp`глобально
+# Щоб використовувати команди `gulp` та `bower` глобально
 npm install -g gulp
+npm install -g bower
+
+# Встановлення бібліотек для браузера
+bower install
 ```
 
 Запуск проекту
