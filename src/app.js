@@ -1,6 +1,6 @@
-import {Person} from './model/Person';
+import {Movies} from './model/Movies';
+import {Movie} from './model/Movie';
 
 global.app = function () {
-    var christoph = new Person('Christoph', 'Burgdorf');
-    console.log(christoph.fullName);
+    
 };
