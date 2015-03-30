@@ -6,6 +6,8 @@ import {Model} from './Model';
 class Movie extends Model {
     constructor(options) {
         super(options);
+
+        //ToDo: реалізація
     }
 
     /**
@@ -13,6 +15,7 @@ class Movie extends Model {
      * Для реалізації доцільно використати метод суперкласу super.sync()
      */
     static fetch() {
+        //ToDo: реалізація
     }
 }
 export {Movie}

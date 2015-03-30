@@ -11,6 +11,7 @@ class Model {
      * Відповідь можна реалізувати через callback, але краще викуористати Promise.
      */
     static  sync(params) {
+        //ToDo: реалізація
     }
 }
 
