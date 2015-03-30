@@ -3,7 +3,7 @@
  */
 class Model {
     constructor(options) {
-        this.options = options;
+        this.options = options || {};
     }
 
     /**
