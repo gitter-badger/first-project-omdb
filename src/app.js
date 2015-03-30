@@ -6,9 +6,7 @@ import {SearchFormView} from './views/SearchFormView.js';
 global.app = function () {
     let movie = new Movie(),
         movies = new Movies(),
-        searchFormView = new SearchFormView({
-            el: document.getElementById("search-form")
-        }),
+        searchFormView = new SearchFormView(),
         movieView = new MovieView();
 
     //ToDo: реалізація - пізніше
