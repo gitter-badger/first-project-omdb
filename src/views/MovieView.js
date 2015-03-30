@@ -11,7 +11,7 @@ class MovieView extends View {
     }
 
     /**
-     * Оновлює DOM відповідно до моделі
+     * Оновлює DOM відповідно до моделі Movie
      */
     render(){
         //ToDo: реалізація
