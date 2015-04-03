@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PubSup example page</title>
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="row"></div>
+</div>
+<!-- /.container -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="bower_components/pubsubjs/pubsub.js"></script>
+
+<script>
+    //Тут реалізація модулів спрощена, використовуються просто immediately-invoked function expression
+    //тому треба звернути увагу на використання Pubsub, а не на оформлення модулів
+
+    //ініціалізація Pubsub
+    //в цьому прикладі буде глобальним
+    var pubsub = Pubsub.create();
+
+    //перший модуль - генерує цю подію
+    (function () {
+        //дані для передачі - краще використовувати об’єкт
+        var eventData = {
+            title: "Fast & Furious 7",
+            year: 2015
+        };
+
+        //генеруємо цю подію
+        //таймаут потрібен, щоб інші модулі нижче встигли підписатися на подію
+        //і тільки після цього через 0.1 сек генеруємо її
+        setTimeout(function () {
+            //перший аргумента - назва події,
+            //другий - контекст (тобто на що вказуватиме this в хендлерах - зараз це не важливо)
+            //третій - дані, що ми передаємо в хендлери
+            pubsub.publish('user.search.start', null, eventData);
+        }, 100);
+    }());
+
+    //другий модуль - підписується на подію і виводить в консоль дані
+    (function () {
+        //підписуємося на подію
+        pubsub.subscribe('user.search.start', function (context, data) {
+            //поки що просто виводимо в консоль всі дані, що надійшли разом з подією
+            console.log("Start search film with title '" + data.title + "', year " + data.year);
+        });
+    }());
+
+    //третій модуль - підписується на подію і записує дані в LocalStorage
+    (function () {
+        //підписуємося на подію
+        pubsub.subscribe('user.search.start', function (context, data) {
+            //перезаписуємо значення lastSearch в LocalStorage
+            if (window.localStorage) {
+                window.localStorage.setItem("lastSearch", JSON.stringify(data));
+            }
+            //тепер можна перевірити localStorage в dev tools браузера
+        });
+    }());
+
+
+</script>
+</body>
+</html>
