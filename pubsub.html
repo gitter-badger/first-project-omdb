@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="row"></div>
+    <div id="content" class="row"></div>
 </div>
 <!-- /.container -->
 
@@ -47,10 +47,16 @@
             //другий - контекст (тобто на що вказуватиме this в хендлерах - зараз це не важливо)
             //третій - дані, що ми передаємо в хендлери
             pubsub.publish('user.search.start', null, eventData);
+
+            //також відправимо ще одну подію по перегляд деталей фільму
+             pubsub.publish('user.details.show', null, {
+                 title: "Fast & Furious 7",
+                 year: 2015
+             });
         }, 100);
     }());
 
-    //другий модуль - підписується на подію і виводить в консоль дані
+    //другий модуль - підписується на подію 'user.search.start' і виводить в консоль дані
     (function () {
         //підписуємося на подію
         pubsub.subscribe('user.search.start', function (context, data) {
@@ -59,7 +65,7 @@
         });
     }());
 
-    //третій модуль - підписується на подію і записує дані в LocalStorage
+    //третій модуль - підписується на подію 'user.search.start' і записує дані в LocalStorage
     (function () {
         //підписуємося на подію
         pubsub.subscribe('user.search.start', function (context, data) {
@@ -71,7 +77,13 @@
         });
     }());
 
-
+    //четвертий модуль виводить інформацію про подію 'user.details.show' на сторінку
+    (function () {
+        //підписуємося на подію
+        pubsub.subscribe('user.details.show', function (context, data) {
+           document.getElementById("content").innerText = "Details about film with title '" + data.title + "', year " + data.year;
+        });
+    }());
 </script>
 </body>
 </html>
