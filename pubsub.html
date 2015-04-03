@@ -49,10 +49,10 @@
             pubsub.publish('user.search.start', null, eventData);
 
             //також відправимо ще одну подію по перегляд деталей фільму
-             pubsub.publish('user.details.show', null, {
-                 title: "Fast & Furious 7",
-                 year: 2015
-             });
+            pubsub.publish('user.details.show', null, {
+                title: "Fast & Furious 7",
+                year: 2015
+            });
         }, 100);
     }());
 
@@ -81,7 +81,7 @@
     (function () {
         //підписуємося на подію
         pubsub.subscribe('user.details.show', function (context, data) {
-           document.getElementById("content").innerText = "Details about film with title '" + data.title + "', year " + data.year;
+            document.getElementById("content").innerText = "Details about film with title '" + data.title + "', year " + data.year;
         });
     }());
 </script>
