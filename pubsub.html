@@ -48,10 +48,14 @@
             //третій - дані, що ми передаємо в хендлери
             pubsub.publish('user.search.start', null, eventData);
 
-            //також відправимо ще одну подію по перегляд деталей фільму
+            //також відправимо ще пару подій по перегляд деталей фільму
             pubsub.publish('user.details.show', null, {
                 title: "Fast & Furious 7",
                 year: 2015
+            });
+            pubsub.publish('user.details.show', null, {
+                title: "The Hobbit: An Unexpected Journey",
+                year: 2012
             });
         }, 100);
     }());
@@ -81,7 +85,7 @@
     (function () {
         //підписуємося на подію
         pubsub.subscribe('user.details.show', function (context, data) {
-            document.getElementById("content").innerText = "Details about film with title '" + data.title + "', year " + data.year;
+            document.getElementById("content").innerHTML += "<p>Details about film with title '" + data.title + "', year " + data.year + "</p>";
         });
     }());
 </script>
