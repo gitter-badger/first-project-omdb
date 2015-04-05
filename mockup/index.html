@@ -36,33 +36,26 @@ and open the template in the editor.
         <div id="navbar" class="navbar-collapse collapse">
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Enter a title...">
                 </div>
                 <div class="form-group">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                                aria-expanded="false">
-                            Year <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">2010</a></li>
-                            <li><a href="#">2011</a></li>
-                            <li><a href="#">2012</a></li>
-                            <li><a href="#">2013</a></li>
-                        </ul>
+                        <select class="form-control">
+                            <option selected>Select year...</option>
+                            <option>2013</option>
+                            <option>2014</option>
+                            <option>2015</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                                aria-expanded="false">
-                            Type <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">movie</a></li>
-                            <li><a href="#">series</a></li>
-                            <li><a href="#">episode</a></li>
-                        </ul>
+                        <select class="form-control">
+                            <option selected>Select type...</option>
+                            <option>movie</option>
+                            <option>series</option>
+                            <option>episode</option>
+                        </select>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-default">Search</button>
@@ -75,11 +68,57 @@ and open the template in the editor.
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-sm-3">
-            Left sidebar
+        <div class="col-sm-4 col-md-3">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <div class="row panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Sidebar Search Form</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <form class="row form-horizontal">
+                                    <div class="form-group">
+                                        <label>Movie Title</label>
+
+                                        <div class="">
+                                            <input class="form-control" type="text" placeholder="Enter a title..."/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Year</label>
+
+                                        <div class="">
+                                            <select class="form-control">
+                                                <option selected>Select year...</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Type</label>
+
+                                        <div class="">
+                                            <select class="form-control">
+                                                <option selected>Select type...</option>
+                                                <option>movie</option>
+                                                <option>series</option>
+                                                <option>episode</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-default pull-right form-group">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-4 col-md-6">
             <div id="films" class="row">
                 <div class="thumbnail">
                     <div class="caption">
@@ -93,7 +132,7 @@ and open the template in the editor.
             </div>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-4 col-md-3">
             Right sidebar
         </div>
     </div>
