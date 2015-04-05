@@ -3,6 +3,9 @@ import {Movie} from './model/Movie';
 import {MovieView} from './views/MovieView.js';
 import {SearchFormView} from './views/SearchFormView.js';
 import {SearchResultView} from './views/SearchResultView.js';
+import {ViewedMoviesHistory} from '.views/LastViewedMovies.js';
+
+var pubsub = Pubsub.create();
 
 global.app = function () {
     let movie = new Movie(),
@@ -10,6 +13,7 @@ global.app = function () {
         searchFormView = new SearchFormView(),
         movieView = new MovieView(),
         searchResultView = new SearchResultView();
+        viewedMoviesHistory = new ViewedMoviesHistory();
 
     //ToDo: реалізація - пізніше
 };
