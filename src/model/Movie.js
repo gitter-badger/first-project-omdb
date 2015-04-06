@@ -1,9 +1,8 @@
-import {Model} from './Model';
 
 /**
  * Один конкретний фільм з детальною інформацією.
  */
-class Movie extends Model {
+class Movie{
     constructor(options) {
         super(options);
 

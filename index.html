@@ -36,27 +36,27 @@
             <a class="navbar-brand" href="#">OMDB</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-left" role="search">
+            <form id="search-form" class="navbar-form navbar-left" role="search" method="get" action="">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Enter a title...">
+                    <input type="text" class="form-control" placeholder="Enter a title..." required>
                 </div>
                 <div class="form-group">
                     <div class="btn-group">
-                        <select class="form-control">
-                            <option selected>Select year...</option>
-                            <option>2013</option>
-                            <option>2014</option>
-                            <option>2015</option>
+                        <select id="search-form-year" class="form-control">
+                            <option selected value="">Select year...</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="btn-group">
-                        <select class="form-control">
-                            <option selected>Select type...</option>
-                            <option>movie</option>
-                            <option>series</option>
-                            <option>episode</option>
+                        <select id="search-form-type" class="form-control">
+                            <option selected value="">Select type...</option>
+                            <option value="movie">Movie</option>
+                            <option value="series">Series</option>
+                            <option value="episode">Episode</option>
                         </select>
                     </div>
                 </div>
@@ -80,23 +80,24 @@
                         </div>
                         <div class="panel-body">
                             <div class="col-sm-offset-1 col-sm-10">
-                                <form class="row form-horizontal">
+                                <form id="sidebar-search-form" class="row form-horizontal" method="get" action="">
                                     <div class="form-group">
                                         <label>Movie Title</label>
 
                                         <div class="">
-                                            <input class="form-control" type="text" placeholder="Enter a title..."/>
+                                            <input id="sidebar-search-form-title" class="form-control" type="text"
+                                                   placeholder="Enter a title..." required/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Year</label>
 
                                         <div class="">
-                                            <select class="form-control">
-                                                <option selected>Select year...</option>
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                                <option>2015</option>
+                                            <select id="sidebar-search-form-year" class="form-control">
+                                                <option selected value="">Select year...</option>
+                                                <option value="2013">2013</option>
+                                                <option value="2014">2014</option>
+                                                <option value="2015">2015</option>
                                             </select>
                                         </div>
                                     </div>
@@ -104,11 +105,11 @@
                                         <label>Type</label>
 
                                         <div class="">
-                                            <select class="form-control">
-                                                <option selected>Select type...</option>
-                                                <option>movie</option>
-                                                <option>series</option>
-                                                <option>episode</option>
+                                            <select id="sidebar-search-form-type" class="form-control">
+                                                <option selected value="">Select type...</option>
+                                                <option value="movie">Movie</option>
+                                                <option value="series">Series</option>
+                                                <option value="episode">Episode</option>
                                             </select>
                                         </div>
                                     </div>
@@ -144,7 +145,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="col-sm-offset-1 col-sm-10">
-                                <ul class="row list-unstyled">
+                                <ul id="last-viewed" class="row list-unstyled">
                                 </ul>
                             </div>
                         </div>
@@ -201,8 +202,5 @@
 <script src="bower_components/pubsubjs/pubsub.js"></script>
 
 <script src="./dist/app.js"></script>
-<script>
-    app();
-</script>
 </body>
 </html>

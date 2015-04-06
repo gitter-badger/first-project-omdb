@@ -1,19 +1,21 @@
-import {Movies} from './model/Movies';
-import {Movie} from './model/Movie';
-import {MovieView} from './views/MovieView.js';
+import {MovieDetailsView} from './views/MovieDetailsView.js';
 import {SearchFormView} from './views/SearchFormView.js';
 import {SearchResultView} from './views/SearchResultView.js';
-import {ViewedMoviesHistory} from '.views/LastViewedMovies.js';
+import {LastMoviesView} from './views/LastMoviesView.js';
+import {SidebarSearchFormView} from './views/SidebarSearchFormView.js';
+import {LastSearchesView} from './views/LastSearchesView.js';
+import {TrailerView} from './views/TrailerView.js';
 
 var pubsub = Pubsub.create();
 
-global.app = function () {
-    let movie = new Movie(),
-        movies = new Movies(),
-        searchFormView = new SearchFormView(),
-        movieView = new MovieView(),
-        searchResultView = new SearchResultView();
-        viewedMoviesHistory = new ViewedMoviesHistory();
+(function () {
+    let lastMoviesView = new LastMoviesView({
+            pubsub: pubsub
+        }),
+        sidebarSearchFormView = new SidebarSearchFormView({
+            pubsub: pubsub
+        });
 
     //ToDo: реалізація - пізніше
-};
+}());
+
