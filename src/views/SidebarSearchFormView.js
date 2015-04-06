@@ -28,7 +28,7 @@ class SidebarSearchFormView {
 
         //тестова підписка на початок пошуку - просто для перевірки роботи віджета
         this.pubsub.subscribe('user.search.start', function (context, data) {
-            console.log("Start search film with title '" + data.Title + "', year " + data.Year + ", movie type " + data.Type);
+            console.log(`Start search film with title '${data.Title}', year ${data.Year}, type ${data.Type}`);
         });
     }
 
