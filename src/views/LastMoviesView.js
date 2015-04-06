@@ -16,7 +16,7 @@ class LastMoviesView {
         this.pubsub = options.pubsub;
 
         //зніходимо і запам’ятовуємо елемент віджета
-        this.el = document.getElementById("last-viewed");
+        this.el = document.getElementById("last-movies");
 
         //ініціалізуємо локальні змінні - мисиви та ін.
         this.lastMovies = [];
