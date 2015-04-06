@@ -9,13 +9,12 @@ import {TrailerView} from './views/TrailerView.js';
 var pubsub = Pubsub.create();
 
 (function () {
+    //додайте тут ініціалізацію свого модуля для початку розробки
     let lastMoviesView = new LastMoviesView({
             pubsub: pubsub
         }),
         sidebarSearchFormView = new SidebarSearchFormView({
             pubsub: pubsub
         });
-
-    //ToDo: реалізація - пізніше
 }());
 
