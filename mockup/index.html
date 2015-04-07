@@ -254,5 +254,14 @@ and open the template in the editor.
         }
     }(jQuery));
 </script>
+<script>
+
+$('form').on('submit', function(e){
+e.preventDefault();
+var $this = $(this);
+var findOption = $("select option:selected").text();
+console.log(findOption);
+});
+</script>
 </body>
 </html>
