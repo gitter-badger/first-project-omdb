@@ -1,8 +1,8 @@
+import {LastMoviesView} from './views/LastMoviesView.js';
+import {SidebarSearchFormView} from './views/SidebarSearchFormView.js';
 import {MovieDetailsView} from './views/MovieDetailsView.js';
 import {SearchFormView} from './views/SearchFormView.js';
 import {SearchResultView} from './views/SearchResultView.js';
-import {LastMoviesView} from './views/LastMoviesView.js';
-import {SidebarSearchFormView} from './views/SidebarSearchFormView.js';
 import {LastSearchesView} from './views/LastSearchesView.js';
 import {TrailerView} from './views/TrailerView.js';
 
@@ -14,6 +14,21 @@ var pubsub = Pubsub.create();
             pubsub: pubsub
         }),
         sidebarSearchFormView = new SidebarSearchFormView({
+            pubsub: pubsub
+        }),
+        movieDetailsView = new MovieDetailsView({
+            pubsub: pubsub
+        }),
+        searchFormView = new SearchFormView({
+            pubsub: pubsub
+        }),
+        searchResultView = new SearchResultView({
+            pubsub: pubsub
+        }),
+        lastSearchesView = new LastSearchesView({
+            pubsub: pubsub
+        }),
+        trailerView = new TrailerView({
             pubsub: pubsub
         });
 }());
