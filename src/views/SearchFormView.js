@@ -1,58 +1,29 @@
-import {View} from './View.js';
-// import {Pubsub} from '././app.js';
+
 /**
  * Пошукова форма
  */
-// var searchOptions;
-// 
-// sumbit.addEventListener('keyup', function(){
-//     searchOptions = this.value;
-//     window.location = "http://www.omdbapi.com/"
-//     window.location.search = searchOptions;
-//     var searhSite = window.location.search; 
-// });
-// создаем обект для поиска
-// function searhObj()
-// { this.Title = Title, это мы ищем
-//  this.Year = Year, берем из дропдауна
-//  this.Type = Type берем из дропдауна
-//  };
-//
-//$('form').on('submit', function(e){
-// e.preventDefault();
-// var $this = $(this);
-// var findOption = $this.find("option:selected");
-// console.log(findOption);
-//});
-//    
-class SearchFormView extends View {
-
-  submit.addEventLisener('keyup', 
-  	function()
-  	{
-  		this.title = title;
-
-  	},
-  	function()
- {
-  pubsub.publish('user.search.start', title, year, type);
-});
-//var pubsub = Pubsub.create();
-// var hendler = sumbit.addEventLisener('keyup', function(contex, searchObj){
-//     searchOptions = this.value;
-//     window.location = "http://www.omdbapi.com/"
-//     window.location.search = searchOptions;
-//     var searhSite = window.location.search; 
-// });
-// 
-// 
-// 
-// 
-//pubsub.publish('user.search.start', null, hendler);
-//pubsub.subscribe('user.search.start', null, hendler)
+class SearchFormView {
     constructor(options) {
         super(options);
+ this.pubsub = options.pubsub
+ this.el = document.getElementById("search-form");
+ this.el.addEventListener('submit', event => this.onFormSubmit(event)); 
         //ToDo: ініціалізувати елементи DOM та event listeners
+ this.pubsub.subscribe('user.search.start', function(context, data){
+ 	console.log(`Start search film with title '${data.Title}', year ${data.Year}, type ${data.Type}`);
+ });    
+    }
+    onFormSubmit(event){
+    	let title = document.getElementById('top-search-title').value,
+    	year = document.getElementById("top-search-from-year").value,
+    	type = document.getElementById("top-search-from-type").value,
+    	eventData = {
+    		Title: title,
+    		Year: year,
+    		Type: type
+    	};
+    	event.preventDefault();
+    	this.pubsub.publish('user.search.start', null, eventData);
     }
 }
 export {SearchFormView}

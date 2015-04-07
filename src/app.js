@@ -1,15 +1,20 @@
-import {Movies} from './model/Movies';
-import {Movie} from './model/Movie';
-import {MovieView} from './views/MovieView.js';
+import {MovieDetailsView} from './views/MovieDetailsView.js';
 import {SearchFormView} from './views/SearchFormView.js';
 import {SearchResultView} from './views/SearchResultView.js';
+import {LastMoviesView} from './views/LastMoviesView.js';
+import {SidebarSearchFormView} from './views/SidebarSearchFormView.js';
+import {LastSearchesView} from './views/LastSearchesView.js';
+import {TrailerView} from './views/TrailerView.js';
 
-global.app = function () {
-    let movie = new Movie(),
-        movies = new Movies(),
-        searchFormView = new SearchFormView(),
-        movieView = new MovieView(),
-        searchResultView = new SearchResultView();
+var pubsub = Pubsub.create();
 
-    //ToDo: реалізація - пізніше
-};
+(function () {
+    //додайте тут ініціалізацію свого модуля для початку розробки
+    let lastMoviesView = new LastMoviesView({
+            pubsub: pubsub
+        }),
+        sidebarSearchFormView = new SidebarSearchFormView({
+            pubsub: pubsub
+        });
+}());
+

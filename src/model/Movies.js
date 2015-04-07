@@ -1,9 +1,7 @@
-import {Model} from './Model';
-
 /**
  * Фільми, що відповідають пошуковому запиту.
  */
-class Movies extends Model {
+class Movies {
     constructor(options) {
         super(options);
 

@@ -2,7 +2,7 @@
 /**
  * Пошукова форма
  */
-class SearchResultView{
+class LastSearchesView{
     constructor(options) {
         super(options);
 
@@ -16,4 +16,4 @@ class SearchResultView{
         //ToDo: реалізація
     }
 }
-export {SearchResultView}
+export {LastSearchesView}
