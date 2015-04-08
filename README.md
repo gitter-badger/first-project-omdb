@@ -1,5 +1,7 @@
 # first-project-omdb
 
+[![Join the chat at https://gitter.im/learnjskiev/first-project-omdb](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/learnjskiev/first-project-omdb?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Проект використовує відкрите АРІ http://www.omdbapi.com
 Це база кінофільмів. 
 
